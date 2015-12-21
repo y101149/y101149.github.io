@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>My Projects During My Graduate</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/mystyle.css" type="text/css" media="screen"/>
+
+
+
+    <!-- The JavaScript -->
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.easing.1.3.js"></script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/help.css" type="text/css" media="screen"/>
+
+    <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+
+
+    <script type="text/javascript">
+        $(function() {
+            /**
+             * for each menu element, on mouseenter,
+             * we enlarge the image, and show both sdt_active span and
+             * sdt_wrap span. If the element has a sub menu (sdt_box),
+             * then we slide it - if the element is the last one in the menu
+             * we slide it to the left, otherwise to the right
+             */
+            $('#sdt_menu > li').bind('mouseenter',function(){
+                var $elem = $(this);
+                $elem.find('img')
+                        .stop(true)
+                        .animate({
+                            'width':'170px',
+                            'height':'170px',
+                            'left':'0px'
+                        },400,'easeOutBack')
+                        .andSelf()
+                        .find('.sdt_wrap')
+                        .stop(true)
+                        .animate({'top':'140px'},500,'easeOutBack')
+                        .andSelf()
+                        .find('.sdt_active')
+                        .stop(true)
+                        .animate({'height':'170px'},300,function(){
+                            var $sub_menu = $elem.find('.sdt_box');
+                            if($sub_menu.length){
+                                var left = '170px';
+                                if($elem.parent().children().length == $elem.index()+1)
+                                    left = '-170px';
+                                $sub_menu.show().animate({'left':left},200);
+                            }
+                        });
+            }).bind('mouseleave',function(){
+                var $elem = $(this);
+                var $sub_menu = $elem.find('.sdt_box');
+                if($sub_menu.length)
+                    $sub_menu.hide().css('left','0px');
+
+                $elem.find('.sdt_active')
+                        .stop(true)
+                        .animate({'height':'0px'},300)
+                        .andSelf().find('img')
+                        .stop(true)
+                        .animate({
+                            'width':'0px',
+                            'height':'0px',
+                            'left':'85px'},400)
+                        .andSelf()
+                        .find('.sdt_wrap')
+                        .stop(true)
+                        .animate({'top':'25px'},500);
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<div id = "header">
+    <h1>My Project During Graduate</h1>
+</div>
+
+<div id = "content">
+    <ul id="sdt_menu" class="sdt_menu">
+        <li>
+            <a href="index.html">
+                <img src="img/2.jpg" alt=""/>
+                <span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">About me</span>
+							<span class="sdt_descr">Get to know me</span>
+						</span>
+            </a>
+        </li>
+        <li>
+            <a href="experience.html">
+                <img src="img/1.jpg" alt=""/>
+                <span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">Portfolio</span>
+							<span class="sdt_descr">My Education and Work Experience</span>
+						</span>
+            </a>
+
+        </li>
+        <li>
+            <a href="hobby.html">
+                <img src="img/3.jpg" alt=""/>
+                <span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">My Hobby</span>
+							<span class="sdt_descr">I Like Playing all kinds of Things</span>
+						</span>
+            </a>
+        </li>
+        <li>
+            <a href="photos.html">
+                <img src="img/4.jpg" alt=""/>
+                <span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">Photos</span>
+							<span class="sdt_descr">I like to photograph</span>
+						</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="projects.html">
+                <img src="img/6.jpg" alt=""/>
+                <span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">Projects</span>
+							<span class="sdt_descr">I like to code</span>
+						</span>
+            </a>
+            <!--<div class="sdt_box">-->
+            <!--<a href="#">Job Board Website</a>-->
+            <!--<a href="#">Shopping Cart</a>-->
+            <!--<a href="#">Interactive Maps</a>-->
+            <!--</div>-->
+        </li>
+    </ul>
+</div>
+
+<section id="cd-timeline" class="cd-container">
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-picture">
+            <!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+            <img src="img/Basketball.svg" alt="Picture">
+
+        </div> <!-- cd-timeline-img -->
+
+        <div class="cd-timeline-content">
+            <h2>Simple Network Project</h2>
+            <p style="font-family: fantasy">In the course "Computer Network", I learnt some basic knowledge on computer
+            network. The project includes some basic concept. For Example, Http protocol simulation, RIP protocol simulation and
+            so on. Finally I got A in this course.
+            </p>
+            <a href="https://github.com/y101149/yyx-gwu-network" class="cd-read-more" target="_blank">Learn More</a>
+            <span class="cd-date">September 2014 to December 2014</span>
+        </div> <!-- cd-timeline-content -->
+    </div> <!-- cd-timeline-block -->
+
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-picture">
+            <!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+            <img src="img/stydy.png" alt="Picture">
+
+        </div> <!-- cd-timeline-img -->
+
+        <div class="cd-timeline-content">
+            <h2>Computer Architecture Simulation</h2>
+            <p style="font-family: fantasy">
+                In the course "Computer Architecture", I design and implement a CISC instruction simulator. It could simulate
+                executing instructions like real instruction set. Finally I got A- in this course
+            </p>
+            <img src="img/project/project2.png" alt=""/>
+            <a href="https://github.com/y101149/computer-architecture" class="cd-read-more" target="_blank">Learn More</a>
+            <span class="cd-date">January 2015 to May 2015</span>
+        </div> <!-- cd-timeline-content -->
+    </div> <!-- cd-timeline-block -->
+
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-picture">
+            <!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+            <img src="img/travel.png" alt="Picture">
+
+        </div> <!-- cd-timeline-img -->
+
+        <div class="cd-timeline-content">
+            <h2>Computer Graphic With OpenGL</h2>
+            <p style="font-family: fantasy">
+                In the course "Computer Graphic With OpenGL", I learnt the basic knowledge on computer graphic processing with
+                OpenGL. In the term Project, I design a simple game "Shooting Ducks" with 3D effect. Finally I got A in this
+                course.
+            </p>
+            <img src="img/project/project1.png" alt=""/>
+            <a href="https://github.com/y101149/computer-graphic" class="cd-read-more" target="_blank">Learn More</a>
+            <span class="cd-date">January 2015 to May 2015</span>
+        </div> <!-- cd-timeline-content -->
+    </div> <!-- cd-timeline-block -->
+
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-picture">
+            <!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+            <img src="img/learning.png" alt="Picture">
+
+        </div> <!-- cd-timeline-img -->
+
+        <div class="cd-timeline-content">
+            <h2>Database Management System</h2>
+            <p style="font-family: fantasy">
+                In the course "Database Management System", I learnt the basic knowledge on Oracle Database. I learnt the SQL and
+                some schema of the Oracle Database. In the term project, I design a simple database management system with a friendly
+                UI and implement it. Finally I got A in this course.
+            </p>
+            <img src="img/project/project3.png" alt=""/>
+            <img src="img/project/project4.png" alt=""/>
+            <a href="https://github.com/y101149/database-management" class="cd-read-more" target="_blank">Learn More</a>
+            <span class="cd-date">January 2015 to May 2015</span>
+        </div> <!-- cd-timeline-content -->
+    </div> <!-- cd-timeline-block -->
+
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-picture">
+            <!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+            <img src="img/travel.png" alt="Picture">
+
+        </div> <!-- cd-timeline-img -->
+
+        <div class="cd-timeline-content">
+            <h2>Data Compression on Image</h2>
+            <p style="font-family: fantasy">
+                In the course "Data Compression", I learnt the basic knowledge on The Compression to images using Matlab.
+                I implement JPEG compression in my term project. Basically, it compresses a gray-scaled image to a bit stream and you could
+                config its compression ratio. Finally I got A in this course.
+            </p>
+            <img src="img/project/project6.png" alt=""/>
+            <img src="img/project/project5.png" alt=""/>
+            <a href="https://github.com/y101149/data-compression" class="cd-read-more" target="_blank">Learn More</a>
+            <span class="cd-date">Aug 2015 to Dec 2015</span>
+        </div> <!-- cd-timeline-content -->
+    </div> <!-- cd-timeline-block -->
+
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-picture">
+            <!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+            <img src="img/eating.png" alt="Picture">
+
+        </div> <!-- cd-timeline-img -->
+
+        <div class="cd-timeline-content">
+            <h2>Computer Advanced Software Paradigms</h2>
+            <p style="font-family: fantasy">
+                In the course "Advanced Software Paradiam", I learnt the basic rules and schema on software engineering.
+                I implement a lot of schema such as OO programming, concurrent programming. They are all just simple demo.
+                I need to study more on this because it is really hard to fully understand. Finally I got A in this course.
+
+            </p>
+
+            <a href="https://github.com/y101149/paradiam" class="cd-read-more" target="_blank">Learn More</a>
+            <span class="cd-date">Aug 2015 to Dec 2015</span>
+        </div> <!-- cd-timeline-content -->
+    </div> <!-- cd-timeline-block -->
+
+    <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-picture">
+            <!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+            <img src="img/learning.png" alt="Picture">
+
+        </div> <!-- cd-timeline-img -->
+
+        <div class="cd-timeline-content">
+            <h2>My Grade</h2>
+            <p style="font-family: fantasy">
+                During the last two years I have already taken 8 courses. And here is my grades until today.
+
+            </p>
+            <img src="img/project/grade1.png" alt=""/>
+            <img src="img/project/grade2.png" alt=""/>
+            <img src="img/project/grade3.png" alt=""/>
+
+            <span class="cd-date">Summary</span>
+        </div> <!-- cd-timeline-content -->
+    </div> <!-- cd-timeline-block -->
+
+
+</section><!-- cd-timeline -->
+
+<div id="footer">
+    <p>Copyright©Yixin Yin</p>
+    <a href="https://github.com/y101149?tab=repositories" target="_blank"> <img src="img/github.png" width="30" height="30">
+    </a>
+    <div id="altnav">
+        <a href="index.html">About</a> -
+        <a href="experience.html">Portfolio</a> -
+        <a href="photos.html">Photos</a> -
+        <a href="projects.html">Projects</a> -
+        <a href="index.html#contact">Contact Me</a>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

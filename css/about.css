@@ -1,0 +1,33 @@
+#intro{
+    text-align: center;
+    font-family: cursive;
+    float: left;
+    width: 500px;
+    padding-left: 140px;
+
+    margin-bottom: 100px;
+}
+
+#intro p {
+    color: white;
+}
+
+#intro h2 {
+    color: white;
+}
+
+#photo {
+    align-content: center;
+    padding: 0px;
+    margin-top: 0px;
+    float: left;
+    margin-bottom: 30px;
+    margin-left: 80px;
+}
+
+#photo img{
+    padding-left: 50px;
+    width: 300px;
+    height: 400px;
+}
+

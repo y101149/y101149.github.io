@@ -1,1 +1,178 @@
-Hello World
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Yixin Yin's Home Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" href="css/mystyle.css" type="text/css" media="screen"/>
+		<link rel="stylesheet" href="css/about.css" type="text/css" media="screen"/>
+		<link rel="stylesheet" href="css/help.css" type="text/css" media="screen"/>
+		<!-- The JavaScript -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.easing.1.3.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				/**
+				 * for each menu element, on mouseenter,
+				 * we enlarge the image, and show both sdt_active span and
+				 * sdt_wrap span. If the element has a sub menu (sdt_box),
+				 * then we slide it - if the element is the last one in the menu
+				 * we slide it to the left, otherwise to the right
+				 */
+				$('#sdt_menu > li').bind('mouseenter',function(){
+					var $elem = $(this);
+					$elem.find('img')
+							.stop(true)
+							.animate({
+								'width':'170px',
+								'height':'170px',
+								'left':'0px'
+							},400,'easeOutBack')
+							.andSelf()
+							.find('.sdt_wrap')
+							.stop(true)
+							.animate({'top':'140px'},500,'easeOutBack')
+							.andSelf()
+							.find('.sdt_active')
+							.stop(true)
+							.animate({'height':'170px'},300,function(){
+								var $sub_menu = $elem.find('.sdt_box');
+								if($sub_menu.length){
+									var left = '170px';
+									if($elem.parent().children().length == $elem.index()+1)
+										left = '-170px';
+									$sub_menu.show().animate({'left':left},200);
+								}
+							});
+				}).bind('mouseleave',function(){
+					var $elem = $(this);
+					var $sub_menu = $elem.find('.sdt_box');
+					if($sub_menu.length)
+						$sub_menu.hide().css('left','0px');
+
+					$elem.find('.sdt_active')
+							.stop(true)
+							.animate({'height':'0px'},300)
+							.andSelf().find('img')
+							.stop(true)
+							.animate({
+								'width':'0px',
+								'height':'0px',
+								'left':'85px'},400)
+							.andSelf()
+							.find('.sdt_wrap')
+							.stop(true)
+							.animate({'top':'25px'},500);
+				});
+			});
+		</script>
+
+    </head>
+
+    <body>
+		<div id = "header">
+			<h1>Welcome To Yixin Yin's Home Page</h1>
+		</div>
+
+		<div id = "content">
+			<ul id="sdt_menu" class="sdt_menu">
+				<li>
+					<a href="index.html">
+						<img src="img/2.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">About me</span>
+							<span class="sdt_descr">Get to know me</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="experience.html">
+						<img src="img/1.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">Portfolio</span>
+							<span class="sdt_descr">My Education and Work Experience</span>
+						</span>
+					</a>
+
+				</li>
+				<li>
+					<a href="hobby.html">
+						<img src="img/3.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">My Hobby</span>
+							<span class="sdt_descr">I Like Playing all kinds of Things</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="photos.html">
+						<img src="img/4.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">Photos</span>
+							<span class="sdt_descr">I like to photograph</span>
+						</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="projects.html">
+						<img src="img/6.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">Projects</span>
+							<span class="sdt_descr">I like to code</span>
+						</span>
+					</a>
+
+				</li>
+			</ul>
+		</div>
+
+		<div id = "intro">
+			<p>My name is Yixin Yin, I was born in Inner Mongolia in July 1991. I got my Bachelor Degree of Computer
+				Science from Beihang University in June 2014. Now I am living in Washington DC and
+				fighting for my Master degree in George Washington University. My major is also Computer Science there. If everything goes
+				right, I will finish my study this Summer.After that, I may go back to Beijing and look for a job.
+				I think I am an easygoing man and willing to communicate with others. I like playing basketball and computer
+				games in my spare time. I also like traveling and looking for delicious food around the world. Life is hard so why not
+				find something interesting to lighten our life.
+				In this site I will give a detailed introduction for myself.
+				<br/>
+				<br/>
+
+			</p>
+
+			<a name = "contact"></a>
+			<h2>Contact Information</h2>
+			<p>Phone: &nbsp (202)2581610 (USA)<br /></p>
+			<p>Phone:&nbsp 18611184338 (CHINA) <br/></p>
+			<p>	Email:&nbsp <a style="color: white;" href="mailto:yinyixin1991@gmail.com">yinyixin@gwu.edu</a><br /></p>
+			<p>	Address: &nbsp 2018 N Quinn St, Arlington, Washington DC</p>
+
+		</div>
+
+		<div id = "photo">
+			<img src="img/myphoto.jpg">
+		</div>
+		<div id="footer">
+			<p>Copyright©Yixin Yin</p>
+			<a href="https://github.com/y101149?tab=repositories" target="_blank"> <img src="img/github.png" width="30" height="30">
+			</a>
+			<div id="altnav">
+				<a href="index.html">About</a> -
+				<a href="experience.html">Portfolio</a> -
+				<a href="photos.html">Photos</a> -
+				<a href="projects.html">Projects</a> -
+				<a href="index.html#contact">Contact Me</a>
+			</div>
+		</div>
+
+
+
+
+
+    </body>
+</html>
