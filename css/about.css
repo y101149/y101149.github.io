@@ -31,3 +31,15 @@
     height: 400px;
 }
 
+.qrcode a{
+    color: white;
+    text-decoration: none;
+}
+
+.qrcode a:hover {
+    color: orange;
+    text-decoration: underline;
+
+}
+
+
