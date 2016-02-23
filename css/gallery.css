@@ -1,8 +1,9 @@
 div.img {
-    margin: 15px;
+    margin: 2%;
     border: 1px solid #ccc;
     float: left;
-    width: 180px;
+    /*width: 180px;*/
+    width: 20%;
 }
 
 div.img:hover {
@@ -23,6 +24,9 @@ div.desc {
 }
 
 #photocontainer{
-    margin-left: 50px;
+    /*margin-left: 50px;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
     /*margin-bottom: 200px;*/
 }
